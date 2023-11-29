@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a1b82f06cb4057a284a4b25ee990b0, type: 3}
+  m_Name: Gamepad
+  m_EditorClassIdentifier: 
+  Fallback: {fileID: 0}
+  InputDevicePattern: Gamepad
+  Bindings:
+  - ControlPathPattern: buttonSouth
+    GlyphID: 169
+  - ControlPathPattern: buttonEast
+    GlyphID: 170
+  - ControlPathPattern: buttonWest
+    GlyphID: 187
+  - ControlPathPattern: buttonNorth
+    GlyphID: 188
+  - ControlPathPattern: start
+    GlyphID: 180
+  - ControlPathPattern: leftShoulder
+    GlyphID: 176
+  - ControlPathPattern: rightShoulder
+    GlyphID: 181
+  - ControlPathPattern: leftTrigger
+    GlyphID: 179
+  - ControlPathPattern: rightTrigger
+    GlyphID: 184
+  - ControlPathPattern: select
+    GlyphID: 186
+  - ControlPathPattern: leftStick
+    GlyphID: 177
+  - ControlPathPattern: rightStick
+    GlyphID: 182
+  - ControlPathPattern: leftStickPress
+    GlyphID: 178
+  - ControlPathPattern: rightStickPress
+    GlyphID: 183
+  - ControlPathPattern: dpad
+    GlyphID: 171
+  - ControlPathPattern: dpad/up
+    GlyphID: 175
+  - ControlPathPattern: dpad/right
+    GlyphID: 174
+  - ControlPathPattern: dpad/down
+    GlyphID: 172
+  - ControlPathPattern: dpad/left
+    GlyphID: 173
+  Priority: -1

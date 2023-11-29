@@ -1,0 +1,17 @@
+{
+  "name": "com.aela.utilities.input",
+  "version": "0.0.1-preview",
+  "rootNamespace": "AeLa.Utilities.Input",
+  "displayName": "AeLa Input Utilities",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/aestheticianlabs/com.aela.utilities.input",
+  "author": {
+    "name": "Aesthetician Labs",
+    "url": "https://aesthetic.games/"
+  },
+  "description": "Utilities for input handling with Unity's Input System",
+  "dependencies": {
+    "com.unity.inputsystem": "1.7.0",
+    "com.unity.addressables": "1.21.19"
+  }
+}
