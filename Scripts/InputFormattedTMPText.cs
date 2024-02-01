@@ -60,7 +60,7 @@ namespace AeLa.Utilities.Input
 
 		private void UpdateText()
 		{
-			tmp.text = InputFormat.Format(formatString, playerInput);
+			tmp.text = InputFormat.Format(formatString, currentPlayerInput);
 		}
 	}
 }
