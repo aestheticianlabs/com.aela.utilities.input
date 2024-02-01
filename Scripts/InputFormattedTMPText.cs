@@ -10,11 +10,14 @@ namespace AeLa.Utilities.Input
 		[FormerlySerializedAs("PlayerInput")] [SerializeField] private PlayerInput playerInput;
 		private PlayerInput currentPlayerInput;
 		private TMP_Text tmp;
+		private bool initialized;
 
 		private string formatString;
 
 		private async void OnEnable()
 		{
+			if (initialized) return;
+
 			if (!InputFormat.Initialized)
 			{
 				await InputFormat.Initialize();
@@ -27,6 +30,7 @@ namespace AeLa.Utilities.Input
 			}
 
 			SetPlayerInput(playerInput);
+			initialized = true;
 		}
 
 		public void SetPlayerInput(PlayerInput playerInput)
