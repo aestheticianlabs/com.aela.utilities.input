@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,8 +30,9 @@ namespace AeLa.Utilities.Input
 				formatString = tmp.text;
 			}
 
-			SetPlayerInput(playerInput);
+			if(!currentPlayerInput) SetPlayerInput(playerInput);
 			initialized = true;
+			UpdateText();
 		}
 
 		public void SetPlayerInput(PlayerInput playerInput)
@@ -64,6 +66,7 @@ namespace AeLa.Utilities.Input
 
 		private void UpdateText()
 		{
+			if (!initialized || !currentPlayerInput) return;
 			tmp.text = InputFormat.Format(formatString, currentPlayerInput);
 		}
 	}
