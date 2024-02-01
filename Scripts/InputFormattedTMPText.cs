@@ -1,14 +1,14 @@
-using System;
-using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace AeLa.Utilities.Input
 {
 	public class InputFormattedTMPText : MonoBehaviour
 	{
-		public PlayerInput PlayerInput;
+		[FormerlySerializedAs("PlayerInput")] [SerializeField] private PlayerInput playerInput;
+		private PlayerInput currentPlayerInput;
 		private TMP_Text tmp;
 
 		private string formatString;
@@ -26,13 +26,31 @@ namespace AeLa.Utilities.Input
 				formatString = tmp.text;
 			}
 
-			PlayerInput.onControlsChanged += OnControlsChanged;
+			SetPlayerInput(playerInput);
+		}
+
+		public void SetPlayerInput(PlayerInput playerInput)
+		{
+			if (currentPlayerInput == playerInput) return;
+
+			if (currentPlayerInput)
+			{
+				currentPlayerInput.onControlsChanged -= OnControlsChanged;
+			}
+
+			currentPlayerInput = playerInput;
+			if (!playerInput) return;
+
+			playerInput.onControlsChanged += OnControlsChanged;
 			UpdateText();
 		}
 
 		private void OnDisable()
 		{
-			PlayerInput.onControlsChanged -= OnControlsChanged;
+			if (currentPlayerInput)
+			{
+				currentPlayerInput.onControlsChanged -= OnControlsChanged;
+			}
 		}
 
 		private void OnControlsChanged(PlayerInput obj)
@@ -42,7 +60,7 @@ namespace AeLa.Utilities.Input
 
 		private void UpdateText()
 		{
-			tmp.text = InputFormat.Format(formatString, PlayerInput);
+			tmp.text = InputFormat.Format(formatString, playerInput);
 		}
 	}
 }
